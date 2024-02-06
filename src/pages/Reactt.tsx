@@ -27,9 +27,9 @@ const Reactt = () => {
           {/* Page content here */}
           <label
             htmlFor="my-drawer-2"
-            className="drawer-button lg:hidden cursor-pointer pl-[80vw]"
+            className="drawer-button lg:hidden cursor-pointer mt-24 pl-[70vw]"
           >
-            <GiHamburgerMenu />
+          <GiHamburgerMenu/>
           </label>
 
           <CreateReactApp />
