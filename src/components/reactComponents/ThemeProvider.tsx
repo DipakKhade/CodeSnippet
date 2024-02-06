@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const ThemeProvider = () => {
     const codes = [
@@ -123,33 +124,32 @@ export function themeToggle() {
     };
   
   return (
-    <div id="themeprovider">
-      <div className="w-full max-w-screen-xl px-2.5 ">
-            
-            {codes.map((i, index) => (
-              <div key={index}>
-                <h3 className="text-2xl p-2">{i.heading}</h3>
-                <p>{i?.desc}</p>
-                <div className="bg-[#282C34] rounded-t-sm pl-[70vw] text-white pt-1">
-                  <button onClick={() => copyTo(i.code, index)}>
-                    {copiedStates[index]}
-                  </button>
-                </div>
+    <MaxWidthWrapper>
+      <div className="pt-12">
+      
+        {codes.map((i, index) => (
+          <div key={index}>
+            <h3 className="text-2xl p-2">{i.heading}</h3>
+            <p>{i?.desc}</p>
+            <div className="bg-[#282C34] rounded-t-sm pl-[65vw] text-white pt-1">
+              <button onClick={() => copyTo(i.code, index)}>
+                {copiedStates[index]}
+              </button>
+            </div>
 
-                <SyntaxHighlighter
-                  language="javascript"
-                  style={atomOneDark}
-                  customStyle={{
-                    padding: "6px",
-                   
-                  }}
-                >
-                  {i?.code}
-                </SyntaxHighlighter>
-              </div>
-            ))}
+            <SyntaxHighlighter
+              language="html"
+              style={atomOneDark}
+              customStyle={{
+                padding: "0px",
+              }}
+            >
+              {i.code.trim()}
+            </SyntaxHighlighter>
           </div>
-    </div>
+        ))}
+      </div>
+    </MaxWidthWrapper>
   )
 }
 
