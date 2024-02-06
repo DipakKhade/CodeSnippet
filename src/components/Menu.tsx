@@ -1,8 +1,10 @@
+import MaxWidthWrapper from "./MaxWidthWrapper";
 import MenuCard from "./ui/MenuCard";
 
 const Menu = () => {
   return (
     <>
+    <MaxWidthWrapper>
       <h2 className="text-3xl p-2">Cheetsheets and Codesnippets</h2>
       <div className="gap-3 flex m-auto flex-wrap ">
 
@@ -67,6 +69,7 @@ const Menu = () => {
           <div className="dark:text-slate-200">Next js</div>
         </MenuCard>
       </div>
+      </MaxWidthWrapper>
     </>
   );
 };

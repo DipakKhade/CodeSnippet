@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import MaxWidthWrapper from "../components/MaxWidthWrapper";
 const Html = () => {
   const [copied, setcopied] = useState("copy");
   const copytext = useRef('copy');
@@ -168,6 +169,7 @@ const Html = () => {
   };
  
   return (
+    <MaxWidthWrapper>
     <div className="pt-24">
       <h2 className="text-3xl p-2">HTML</h2>
       {codes.map((i,index) => (
@@ -189,6 +191,7 @@ const Html = () => {
         </div>
       ))}
     </div>
+    </MaxWidthWrapper>
   );
 };
 
