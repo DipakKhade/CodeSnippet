@@ -1,10 +1,8 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const ThemeProvider = () => {
-    const [copied, setcopied] = useState("copy");
-    const copytext = useRef("copy");
     const codes = [
       {
         heading: "theme provider for react app",

@@ -1,11 +1,9 @@
 
-import { useRef, useState } from "react";
+import {  useState } from "react";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
 const Html = () => {
-  const [copied, setcopied] = useState("copy");
-  const copytext = useRef('copy');
   const codes = [
     {
       heading: "html Boilerplate",
@@ -183,7 +181,7 @@ const Html = () => {
           <SyntaxHighlighter language="html"  style={atomOneDark} 
               customStyle={{
                 padding:"0px",
-                margintop:"0px"
+               
               }} >
             {i.code.trim()}
             </SyntaxHighlighter>
