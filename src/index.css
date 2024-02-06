@@ -76,5 +76,12 @@
 }
 
 h3{
-  @apply font-semibold text-slate-700
+  @apply font-semibold text-slate-700 dark:text-slate-200
+}
+p{
+  @apply indent-8 text-gray-800 dark:text-slate-100
+}
+
+h2{
+  @apply font-bold
 }

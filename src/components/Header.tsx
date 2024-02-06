@@ -1,20 +1,21 @@
 import { ModeToggle } from "./ui/mode-toggle";
 
 const Header = () => {
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "https://protfolio-with-next-js.vercel.app/contact" },
+    { label: "Github", href: "https://github.com/DipakKhade" }
+  ];
+
   return (
     <div className="border w-full h-16 fixed bg-slate-100 dark:bg-slate-900 z-50">
       <ul className="flex gap-7 justify-center cursor-pointer">
-        <li className="pt-5">
-      <a href="/">
-          Home
-          </a>
+        {navItems.map((item, index) => (
+          <li key={index} className="pt-5">
+            <a href={item.href} target="_blanck">{item.label}</a>
           </li>
-
-        <li className="pt-5">About</li>
-        <li className="pt-5">Github</li>
-
+        ))}
         <div className="flex gap-7 justify-center pt-3 cursor-pointer">
-         
           <ModeToggle />
         </div>
       </ul>

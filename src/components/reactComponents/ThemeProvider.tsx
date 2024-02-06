@@ -125,7 +125,7 @@ export function themeToggle() {
   
   return (
     <MaxWidthWrapper>
-      <div className="pt-12">
+      <div id="themeprovider" className="pt-12">
       
         {codes.map((i, index) => (
           <div key={index}>

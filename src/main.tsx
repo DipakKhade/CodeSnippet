@@ -11,6 +11,8 @@ import NotFound from './pages/NotFound.tsx'
 import Header from './components/Header.tsx'
 import Footer from './components/Footer.tsx'
 import Reactt from './pages/Reactt.tsx'
+import Express from './pages/Express.tsx'
+import Redux from './pages/Redux.tsx'
 const router=createBrowserRouter([
   {
     path:'/',
@@ -24,6 +26,14 @@ const router=createBrowserRouter([
   {
     path:'/react',
     element:<Reactt/>
+  },
+  {
+    path:'/express',
+    element:<Express/>
+  },
+  {
+    path:'/redux',
+    element:<Redux/>
   }
 
 ])

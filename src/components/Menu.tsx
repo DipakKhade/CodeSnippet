@@ -43,7 +43,7 @@ const Menu = () => {
           <div className="dark:text-slate-200">express</div>
         </MenuCard>
 
-        <MenuCard Linkto="/reddux">
+        <MenuCard Linkto="/redux">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
