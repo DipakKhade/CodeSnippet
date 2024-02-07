@@ -78,6 +78,88 @@ export type AppDispatch = typeof store.dispatch;
       export const useAppDispatch: () => AppDispatch = useDispatch
       export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector`
     },
+
+    {
+      heading:'API calls and data fetching with redux',
+      desc:'considera example of fetching a data of todos , make a slice for todoes and with the following code',
+      code:`import { createSlice } from "@reduxjs/toolkit";
+      import { createAsyncThunk } from "@reduxjs/toolkit";
+      
+      
+      //action
+      export const fetchData=createAsyncThunk('fetchData',async()=>{
+          const res=await fetch('https://jsonplaceholder.typicode.com/todos')
+          return res.json()
+      })
+      
+      
+      const TodoSlice=createSlice({
+         name:'todo',
+         initialState:{
+      isLoading:false,
+      isError:false,
+      data:null
+         },
+      reducers:{},
+      extraReducers:(builder)=>{
+          builder.addCase(fetchData.pending,(state,action)=>{
+              state.isLoading=true
+          });
+          builder.addCase(fetchData.fulfilled,(state,action)=>{
+              state.isLoading=false
+              state.data=action.payload
+          })
+          builder.addCase(fetchData.rejected,(state,action)=>{
+              state.isError=true
+          })
+      }
+      })
+      
+      export default TodoSlice.reducer;
+      `
+    },
+    {
+heading: 'rendering the fecthed data',
+desc:'',
+code:`
+import './App.css'
+import { UseDispatch, useDispatch, useSelector } from 'react-redux'
+import todo, { fetchData } from './Redux/slices/todo'
+import { RootState } from '@reduxjs/toolkit/query'
+function App() {
+const dispatch=useDispatch()
+const state=useSelector((state:RootState)=>state)
+
+//open console to see the state changes
+console.log(state)
+
+if(state.isLoading==true){
+  return <h2>Loding ...</h2>
+}
+  return (
+  <>
+  <div>
+   <h3> fetching data using redux</h3>
+    <div>
+      <button onClick={(e)=>dispatch(fetchData())}>fetch data</button>
+      <div>
+        {
+          state.todo.data &&  state.todo.data.map((t:object,index:number)=>(
+            <ul key={index}>
+              <li>{t.title}</li>
+            </ul>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  </>
+  )
+}
+
+export default App
+`
+    }
     
   ];
   const [copiedStates, setCopiedStates] = useState(
@@ -109,7 +191,7 @@ export type AppDispatch = typeof store.dispatch;
         <div>
           {codes.map((i, index) => (
             <div key={index}>
-              <h3 className="text-2xl p-2">{i?.heading}</h3>
+              <h3 className="text-2xl p-2 pt-8">{i?.heading}</h3>
               <p>{i?.desc}</p>
               <div className="bg-[#282C34] rounded-t-sm pl-[70vw] text-white pt-1">
                 <button onClick={() => copyTo(i?.code, index)}>
