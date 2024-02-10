@@ -187,7 +187,6 @@ export default App
       </div>
       <div>
         <PreCode>{filsStructure[0].code}</PreCode>
-
         <div>
           {codes.map((i, index) => (
             <div key={index}>
