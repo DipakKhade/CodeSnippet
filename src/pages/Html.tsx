@@ -36,7 +36,7 @@ const Html = () => {
     },
     {
       heading: "link",
-      code: `<a href="https://protfolio-with-next-js.vercel.app/">Link Text</a>`,
+      code: `<a href="https://dipakkhade-dev.vercel.app/">Link Text</a>`,
     },
     {
       heading: "image",

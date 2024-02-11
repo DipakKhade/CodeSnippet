@@ -13,6 +13,7 @@ import Footer from './components/Footer.tsx'
 import Reactt from './pages/Reactt.tsx'
 import Express from './pages/Express.tsx'
 import Redux from './pages/Redux.tsx'
+import Nextjs from './pages/Nextjs.tsx'
 const router=createBrowserRouter([
   {
     path:'/',
@@ -34,6 +35,10 @@ const router=createBrowserRouter([
   {
     path:'/redux',
     element:<Redux/>
+  },
+  {
+    path:'/nextjs',
+    element:<Nextjs/>
   }
 
 ])
