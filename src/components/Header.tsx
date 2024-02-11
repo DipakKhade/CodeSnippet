@@ -5,7 +5,7 @@ const Header = () => {
 		{ label: "Home", href: "/" },
 		{
 			label: "About",
-			href: "https://protfolio-with-next-js.vercel.app/contact",
+			href: "https://dipakkhade-dev.vercel.app/contact",
 		},
 		{ label: "Github", href: "https://github.com/DipakKhade" },
 	];
