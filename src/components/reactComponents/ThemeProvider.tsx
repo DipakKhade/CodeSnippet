@@ -1,14 +1,14 @@
 import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const ThemeProvider = () => {
-    const codes = [
-      {
-        heading: "theme provider for react app",
-        desc: "copy and paste this code to /components/ThemeProvider.tsx to use themes in react ",
-        code: `import { createContext, useContext, useEffect, useState } from "react"
+  const codes = [
+    {
+      heading: "theme provider for react app",
+      desc: "copy and paste this code to /components/ThemeProvider.tsx to use themes in react ",
+      code: `import { createContext, useContext, useEffect, useState } from "react"
 
         type Theme = "dark" | "light" | "system"
         
@@ -82,12 +82,11 @@ const ThemeProvider = () => {
           return context
         }
         `,
-      },
-{
-  
-heading:"toggle theme",
-desc:'use this code where you want to use the theme button',
-code :`
+    },
+    {
+      heading: "toggle theme",
+      desc: "use this code where you want to use the theme button",
+      code: `
 import { useTheme } from "@/components/theme-provider"
 export function themeToggle() {
   const { setTheme } = useTheme()
@@ -106,32 +105,29 @@ export function themeToggle() {
       </div>
   )
 }
-`
-}
-      
-    ];
-  
-    
-    const [copiedStates, setCopiedStates] = useState(
-      Array(codes.length).fill("copy")
-    );
-  
-    const copyTo = async (texttocopy: string, index: number) => {
-      const newCopiedStates = [...copiedStates];
-      newCopiedStates[index] = "copied";
-      setCopiedStates(newCopiedStates);
-      await navigator.clipboard.writeText(texttocopy);
-    };
-  
+`,
+    },
+  ];
+
+  const [copiedStates, setCopiedStates] = useState(
+    Array(codes.length).fill("copy"),
+  );
+
+  const copyTo = async (texttocopy: string, index: number) => {
+    const newCopiedStates = [...copiedStates];
+    newCopiedStates[index] = "copied";
+    setCopiedStates(newCopiedStates);
+    await navigator.clipboard.writeText(texttocopy);
+  };
+
   return (
     <MaxWidthWrapper>
       <div id="themeprovider" className="pt-12">
-      
         {codes.map((i, index) => (
           <div key={index}>
             <h3 className="text-2xl p-2">{i.heading}</h3>
             <p>{i?.desc}</p>
-            <div className="bg-[#282C34] rounded-t-sm pl-[65vw] text-white pt-1">
+            <div className="bg-zinc-800 rounded-t-sm pl-[65vw] text-white pt-1">
               <button onClick={() => copyTo(i.code, index)}>
                 {copiedStates[index]}
               </button>
@@ -139,7 +135,7 @@ export function themeToggle() {
 
             <SyntaxHighlighter
               language="html"
-              style={atomOneDark}
+              style={tomorrowNight}
               customStyle={{
                 padding: "0px",
               }}
@@ -150,7 +146,7 @@ export function themeToggle() {
         ))}
       </div>
     </MaxWidthWrapper>
-  )
-}
+  );
+};
 
 export default ThemeProvider;

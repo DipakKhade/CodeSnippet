@@ -1,11 +1,5 @@
-
-
 const Nextjs = () => {
-  return (
-    <div>
-      this is a next js page
-    </div>
-  )
-}
+  return <div className="min-h-screen m-auto">updating soon ...</div>;
+};
 
-export default Nextjs
+export default Nextjs;

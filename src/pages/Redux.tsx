@@ -50,9 +50,9 @@ export type AppDispatch = typeof store.dispatch;
     },
 
     {
-      heading:'slices',
-      desc:'make slices which contains for various actions e.g a slice which add or sub a number count',
-      code:`//slices/counter/index.ts
+      heading: "slices",
+      desc: "make slices which contains for various actions e.g a slice which add or sub a number count",
+      code: `//slices/counter/index.ts
 
       import { createSlice } from "@reduxjs/toolkit";
       const counterSlice=createSlice({
@@ -65,24 +65,24 @@ export type AppDispatch = typeof store.dispatch;
       })
       
       export const {increment,decrement} =counterSlice.actions
-      export default counterSlice.reducer`
+      export default counterSlice.reducer`,
     },
     {
-      heading:'Hooks',
-      desc:'hooks attach to a component intract with store va dispact or selector of a event',
-      code:`//hooks/index.ts
+      heading: "Hooks",
+      desc: "hooks attach to a component intract with store va dispact or selector of a event",
+      code: `//hooks/index.ts
       import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
       import type { RootState, AppDispatch } from '../store'
       
       // Use throughout your app instead of plain useDispatch and useSelector
       export const useAppDispatch: () => AppDispatch = useDispatch
-      export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector`
+      export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector`,
     },
 
     {
-      heading:'API calls and data fetching with redux',
-      desc:'considera example of fetching a data of todos , make a slice for todoes and with the following code',
-      code:`import { createSlice } from "@reduxjs/toolkit";
+      heading: "API calls and data fetching with redux",
+      desc: "considera example of fetching a data of todos , make a slice for todoes and with the following code",
+      code: `import { createSlice } from "@reduxjs/toolkit";
       import { createAsyncThunk } from "@reduxjs/toolkit";
       
       
@@ -116,12 +116,12 @@ export type AppDispatch = typeof store.dispatch;
       })
       
       export default TodoSlice.reducer;
-      `
+      `,
     },
     {
-heading: 'rendering the fecthed data',
-desc:'',
-code:`
+      heading: "rendering the fecthed data",
+      desc: "",
+      code: `
 import './App.css'
 import { UseDispatch, useDispatch, useSelector } from 'react-redux'
 import todo, { fetchData } from './Redux/slices/todo'
@@ -158,12 +158,11 @@ if(state.isLoading==true){
 }
 
 export default App
-`
-    }
-    
+`,
+    },
   ];
   const [copiedStates, setCopiedStates] = useState(
-    Array(codes.length).fill("copy")
+    Array(codes.length).fill("copy"),
   );
 
   const copyTo = async (texttocopy: string, index: number) => {
@@ -176,13 +175,7 @@ export default App
     <MaxWidthWrapper>
       <div className="pt-24">
         <h2>Redux</h2>
-        <p>
-          Redux is a predictable state container for JavaScript apps, primarily
-          used with React for building user interfaces. It serves as a
-          centralized store for managing the state of your application and
-          allows you to manage state changes in a predictable and deterministic
-          way.
-        </p>
+
         <div>file structure</div>
       </div>
       <div>
@@ -198,10 +191,7 @@ export default App
                 </button>
               </div>
 
-              <SyntaxHighlighter
-                language="javascript"
-              style={atomOneDark}
-              >
+              <SyntaxHighlighter language="javascript" style={atomOneDark}>
                 {i.code}
               </SyntaxHighlighter>
             </div>
