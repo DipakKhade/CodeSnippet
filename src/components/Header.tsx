@@ -15,7 +15,7 @@ const Header = () => {
       <ul className="flex gap-7 justify-center cursor-pointer">
         {navItems.map((item, index) => (
           <li key={index} className="pt-5">
-            <a href={item.href} target="_blanck">
+            <a href={item.href}>
               {item.label}
             </a>
           </li>
